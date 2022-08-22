@@ -31,5 +31,5 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// пытаемся проверить совпадает ли выбор юзера и компьютера ?????????????
+// пытаемся проверить совпадает ли выбор юзера и компьютера ???????????
 console.log(userChoose() == compChoose1);
