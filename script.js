@@ -1,4 +1,8 @@
 const columnsAll = document.querySelectorAll(".table__column");
+const span1 = document.querySelector("#_span1");
+const span2 = document.querySelector("#_span2");
+const resetBtn = document.querySelector("#resetBtn");
+
 // Массив выборово юзера
 const userChoices = [];
 // Массив выборов комьютера
@@ -6,12 +10,19 @@ const compChoices = [];
 console.log(compChoices);
 
 // Счетчик для id ячеек
-let counter = 0;
+let counterIdColumn = 0;
+
+// Счетчик для правильных ответов юзера
+let counterForRight = 0;
+
+// Счетчик для неправильных ответов юзера
+let counterForFals = 0;
 
 // присваиваем каждой ячейке id
 for (let column of columnsAll) {
-  counter++;
-  column.id = counter;
+  counterIdColumn++;
+  column.id = counterIdColumn;
+  column.textContent = column.id;
   column.addEventListener("click", userChoose);
 }
 
@@ -29,8 +40,12 @@ function userChoose() {
 
   if (compChoices.includes(Number(this.id))) {
     this.classList.add("succes");
+    counterForRight++;
+    span1.textContent = counterForRight;
   } else {
     this.classList.add("fail");
+    counterForFals++;
+    span2.textContent = counterForFals;
   }
 
   console.log(compChoices);
