@@ -1,6 +1,6 @@
 .table {
   outline: 1px solid black;
-  margin: 70px auto;
+  margin: 20px auto;
 }
 
 .table__row {
@@ -18,10 +18,20 @@
   background-color: green;
 }
 
-.red {
-  background-color: red;
-}
-
 .task__header {
   text-align: center;
+  font-size: 30px;
+}
+
+.task__answer {
+  text-align: center;
+  font-size: 22px;
+}
+
+.succes {
+  background-color: green;
+}
+
+.fail {
+  background-color: red;
 }
