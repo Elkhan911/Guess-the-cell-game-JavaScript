@@ -4,7 +4,7 @@ const span2 = document.querySelector("#_span2");
 const resetBtn = document.querySelector("#resetBtn");
 
 // Массив выборово юзера
-const userChoices = [];
+let userChoices = [];
 // Массив выборов комьютера
 const compChoices = [];
 console.log(compChoices);
@@ -14,9 +14,11 @@ let counterIdColumn = 0;
 
 // Счетчик для правильных ответов юзера
 let counterForRight = 0;
+span1.textContent = counterForRight;
 
 // Счетчик для неправильных ответов юзера
 let counterForFals = 0;
+span2.textContent = counterForFals;
 
 // присваиваем каждой ячейке id
 for (let column of columnsAll) {
@@ -65,3 +67,16 @@ function compChoose() {
 }
 
 compChoose();
+
+resetBtn.addEventListener("click", function () {
+  counterForFals = 0;
+  counterForRight = 0;
+  span1.textContent = "";
+  span2.textContent = "";
+
+  for (let column of columnsAll) {
+    column.classList.remove("succes");
+    column.classList.remove("fail");
+    userChoices = [];
+  }
+});
