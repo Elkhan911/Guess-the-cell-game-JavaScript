@@ -1,0 +1,14 @@
+.table {
+  border: 1px solid black;
+  margin: 70px auto;
+}
+
+.table__row {
+  border: 1px solid blue;
+}
+
+.table__column {
+  width: 70px;
+  height: 70px;
+  border: 1px solid green;
+}
