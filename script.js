@@ -5,6 +5,7 @@ const resetBtn = document.querySelector("#resetBtn");
 
 // Массив выборово юзера
 let userChoices = [];
+
 // Массив выборов комьютера
 const compChoices = [];
 console.log(compChoices);
