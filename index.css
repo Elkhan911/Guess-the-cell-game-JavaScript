@@ -21,3 +21,7 @@
 .red {
   background-color: red;
 }
+
+.task__header {
+  text-align: center;
+}

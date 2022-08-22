@@ -10,23 +10,18 @@ console.log(compChoose3);
 // Счетчик для id ячеек
 let i = 0;
 
+// присваиваем каждой ячейке id
 for (let column of columnsAll) {
   i++;
   column.id = i;
   column.addEventListener("click", userChoose);
-  console.log(column.id);
 }
 
 // Функция для выбора пользователя
 function userChoose() {
   this.classList.add("clickOn");
   this.removeEventListener("click", userChoose);
-}
-
-function userColumnId() {
-  this.addEventListener("click", function () {
-    return this.id;
-  });
+  return this.id;
 }
 
 // функция Random
@@ -35,3 +30,6 @@ function getRandom(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+// пытаемся проверить совпадает ли выбор юзера и компьютера ?????????????
+console.log(userChoose() == compChoose1);
