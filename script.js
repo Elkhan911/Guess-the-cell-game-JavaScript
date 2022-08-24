@@ -1,7 +1,10 @@
 const columnsAll = document.querySelectorAll(".table__column");
 const span1 = document.querySelector("#_span1");
 const span2 = document.querySelector("#_span2");
+const span3 = document.querySelector("#_span3");
 const resetBtn = document.querySelector("#resetBtn");
+const timerText = document.querySelector("#_timerText");
+const timer = document.querySelector("#_timer");
 
 // Массив выборово юзера
 let userChoices = [];
@@ -39,7 +42,7 @@ function getRandom(min, max) {
 // Функция для массива выборов пользователя
 function userChoose() {
   userChoices.push(this.id);
-  console.log(compChoices.includes(Number(this.id)));
+  // console.log(compChoices.includes(Number(this.id)));
 
   if (compChoices.includes(Number(this.id))) {
     this.classList.add("succes");
@@ -51,8 +54,8 @@ function userChoose() {
     span2.textContent = counterForFals;
   }
 
-  console.log(compChoices);
-  console.log(userChoices);
+  // console.log(compChoices);
+  // console.log(userChoices);
   this.removeEventListener("click", userChoose);
 }
 
@@ -80,4 +83,28 @@ resetBtn.addEventListener("click", function () {
     column.classList.remove("fail");
     userChoices = [];
   }
+
+  clearInterval(timerId);
+  timerCounter = 60;
+  timerText.textContent = timerCounter + " секунд";
+
+  timer.addEventListener("click", startTimer);
 });
+
+let timerCounter = 60;
+let timerId;
+timerText.textContent = timerCounter + " секунд";
+
+timer.addEventListener("click", startTimer);
+
+function startTimer() {
+  timerId = setInterval(function () {
+    timerCounter--;
+    timerText.textContent = timerCounter + " секунд(ы)";
+    if (timerCounter == 0) {
+      clearInterval(timerId);
+      timerCounter = 60;
+    }
+  }, 1000);
+  timer.removeEventListener("click", startTimer);
+}
