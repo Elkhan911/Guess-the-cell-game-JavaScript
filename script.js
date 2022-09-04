@@ -1,4 +1,4 @@
-const columnsAll = document.querySelectorAll(".table__column");
+const columnsAll = document.querySelectorAll(".table__item");
 const span1 = document.querySelector("#_span1");
 const span2 = document.querySelector("#_span2");
 const span3 = document.querySelector("#_span3");
@@ -85,13 +85,13 @@ resetBtn.addEventListener("click", function () {
   }
 
   clearInterval(timerId);
-  timerCounter = 60;
+  timerCounter = 100;
   timerText.textContent = timerCounter + " секунд";
 
   timer.addEventListener("click", startTimer);
 });
 
-let timerCounter = 60;
+let timerCounter = 100;
 let timerId;
 timerText.textContent = timerCounter + " секунд";
 
@@ -103,7 +103,7 @@ function startTimer() {
     timerText.textContent = timerCounter + " секунд(ы)";
     if (timerCounter == 0) {
       clearInterval(timerId);
-      timerCounter = 60;
+      timerCounter = 100;
     }
   }, 1000);
   timer.removeEventListener("click", startTimer);

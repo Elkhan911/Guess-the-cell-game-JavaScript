@@ -7,167 +7,115 @@
     <link rel="stylesheet" href="index.css" />
     <title>Угадай ячейку - игра</title>
   </head>
-  <body>
-    <section class="task">
-      <h2 class="task__header">Угадай ячейку - игра</h2>
-
-      <div class="timer">
-        <p class="timer__heading" id="_timer"><b> Таймер</b></p>
-        <p class="timer__text">Вы можете усложнить игру засчет таймера.</p>
-        <p class="timer__text">Для этого просто кликните на словой Таймер</p>
-
-        <p class="timer__text">
-          У вас осталось: <span class="timer__text" id="_timerText"></span>
-        </p>
-      </div>
-
-      <table class="table">
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-
-        <tr class="table__row">
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-          <td class="table__column"></td>
-        </tr>
-      </table>
-
-      <div class="task__zone">
-        <div>
-          <p class="task__answer">
-            Количество правильных ответов:
-            <span class="task__answer" id="_span1"></span>
+  <body class="page">
+    <section class="game">
+      <div class="game__box">
+        <h1 class="game__header">Игра Угадай ячейку</h1>
+        <div class="rules__box">
+          <a href="#" class="rules__header">Условия игры </a>
+          <p class="rules__content">
+            Вы играете против компьютера. Компьютер загадал 25 зеленых
+            квадратиков и 25 красных.
           </p>
-
-          <p class="task__answer">
-            Количество неправильных ответов:
-            <span class="task__answer" id="_span2"></span>
+          <p class="rules__content">
+            Вам нужно за 15 ходов — угадать 10 зеленых квадратиков
+          </p>
+          <p class="rules__content">
+            Вы можете усложнить игру, запустив таймера. Для этого просто
+            кликните на словой Таймер
+          </p>
+          <a class="rules__option" href="#">скрыть условия игры</a>
+        </div>
+        <div class="timer">
+          <h2 class="timer__header" id="_timer"><b> Таймер</b></h2>
+          <p class="timer__text">
+            У вас осталось: <span id="_timerText"></span>
           </p>
         </div>
-        <button class="task__button" id="resetBtn">Начать заново</button>
+
+        <table class="table">
+          <tr class="table__row">
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+          </tr>
+
+          <tr class="table__row">
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+            <td class="table__item"></td>
+          </tr>
+        </table>
+
+        <div class="game__texts">
+          <div>
+            <p class="game__text">
+              Количество правильных ответов:
+              <span class="game__text" id="_span1"></span>
+            </p>
+
+            <p class="game__text">
+              Количество неправильных ответов:
+              <span class="game__text" id="_span2"></span>
+            </p>
+          </div>
+          <button class="game__button" id="resetBtn">Начать заново</button>
+        </div>
       </div>
-      <script src="script.js"></script>
     </section>
+    <script src="script.js"></script>
   </body>
 </html>
