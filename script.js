@@ -15,6 +15,9 @@ rulesBtn.addEventListener("click", function () {
   if (rules == false) {
     rulesBox.classList.remove("rules__contents_off");
     rules = true;
+  } else {
+    rulesBox.classList.add("rules__contents_off");
+    rules = false;
   }
 });
 
