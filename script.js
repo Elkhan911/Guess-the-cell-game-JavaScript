@@ -42,7 +42,7 @@ console.log(compChoices);
 let counterIdColumn = 0;
 
 // Счетчик для ходов юзера
-let counterMoves = 0;
+let counterUserMoves = 0;
 
 // Счетчик для правильных ответов юзера
 let counterForRight = 0;
@@ -65,32 +65,12 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// Функция для массива выборов пользователя
-function userChoose() {
-  userChoices.push(this.id);
-  // console.log(compChoices.includes(Number(this.id)));
-
-  if (compChoices.includes(Number(this.id))) {
-    this.classList.add("table__item_succes");
-    counterForRight++;
-    span1.textContent = counterForRight;
-  } else {
-    this.classList.add("table__item_fail");
-    counterForFals++;
-    span2.textContent = counterForFals;
-  }
-
-  // console.log(compChoices);
-  // console.log(userChoices);
-  this.removeEventListener("click", userChoose);
-}
-
 function compChoose() {
-  for (let i = 1; i < 26; i++) {
-    if (!compChoices.includes(getRandom(1, 50))) {
-      compChoices.push(getRandom(1, 50));
+  while (compChoices.length < 26) {
+    let x = getRandom(1, 50);
+    if (!compChoices.includes(x)) {
+      compChoices.push(x);
     } else {
-      compChoices.push(getRandom(1, 50));
     }
   }
   console.log(compChoices);
@@ -98,6 +78,7 @@ function compChoose() {
 
 compChoose();
 
+// кнопка сброса - начать заново
 resetBtn.addEventListener("click", function () {
   counterForFals = 0;
   counterForRight = 0;
@@ -125,6 +106,7 @@ timerText.textContent = timerCounter + " секунд";
 
 timer.addEventListener("click", startTimer);
 
+//функция для запуска таймера
 function startTimer() {
   timerId = setInterval(function () {
     timerCounter--;
@@ -135,4 +117,34 @@ function startTimer() {
     }
   }, 1000);
   timer.removeEventListener("click", startTimer);
+}
+
+// Функция для выборов ячеек пользователем
+function userChoose() {
+  if (counterUserMoves < 20) {
+    userChoices.push(this.id);
+    counterUserMoves++;
+    span0.textContent = counterUserMoves;
+    if (compChoices.includes(Number(this.id))) {
+      this.classList.add("table__item_succes");
+      counterForRight++;
+      span1.textContent = counterForRight;
+    } else {
+      this.classList.add("table__item_fail");
+      counterForFals++;
+      span2.textContent = counterForFals;
+    }
+  }
+  checkResult();
+  this.removeEventListener("click", userChoose);
+}
+
+function checkResult() {
+  if (Number(span1.textContent) >= 10) {
+    span3.textContent = "поздравляем! Вы одержали победу";
+    counterUserMoves = 20;
+  }
+  if (counterUserMoves == 20 && Number(span1.textContent < 10)) {
+    span3.textContent = "поражение. Сыграйте еще раз";
+  }
 }
