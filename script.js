@@ -1,4 +1,5 @@
 const columnsAll = document.querySelectorAll(".table__item");
+const span0 = document.querySelector("#_span0");
 const span1 = document.querySelector("#_span1");
 const span2 = document.querySelector("#_span2");
 const span3 = document.querySelector("#_span3");
@@ -11,6 +12,7 @@ const hideRulesBtn = document.querySelector("#_hideRulesBtn");
 
 let rules = false;
 
+// фунция показать/скрыть условия игры
 rulesBtn.addEventListener("click", function () {
   if (rules == false) {
     rulesBox.classList.remove("rules__contents_off");
@@ -21,6 +23,7 @@ rulesBtn.addEventListener("click", function () {
   }
 });
 
+// фунция скрыть условия игры
 hideRulesBtn.addEventListener("click", function () {
   if (rules == true) {
     rulesBox.classList.add("rules__contents_off");
@@ -38,13 +41,14 @@ console.log(compChoices);
 // Счетчик для id ячеек
 let counterIdColumn = 0;
 
+// Счетчик для ходов юзера
+let counterMoves = 0;
+
 // Счетчик для правильных ответов юзера
 let counterForRight = 0;
-span1.textContent = counterForRight;
 
 // Счетчик для неправильных ответов юзера
 let counterForFals = 0;
-span2.textContent = counterForFals;
 
 // присваиваем каждой ячейке id
 for (let column of columnsAll) {
@@ -67,11 +71,11 @@ function userChoose() {
   // console.log(compChoices.includes(Number(this.id)));
 
   if (compChoices.includes(Number(this.id))) {
-    this.classList.add("succes");
+    this.classList.add("table__item_succes");
     counterForRight++;
     span1.textContent = counterForRight;
   } else {
-    this.classList.add("fail");
+    this.classList.add("table__item_fail");
     counterForFals++;
     span2.textContent = counterForFals;
   }
@@ -82,11 +86,11 @@ function userChoose() {
 }
 
 function compChoose() {
-  for (let i = 1; i < 11; i++) {
-    if (!compChoices.includes(getRandom(1, 100))) {
-      compChoices.push(getRandom(1, 100));
+  for (let i = 1; i < 26; i++) {
+    if (!compChoices.includes(getRandom(1, 50))) {
+      compChoices.push(getRandom(1, 50));
     } else {
-      compChoices.push(getRandom(1, 100));
+      compChoices.push(getRandom(1, 50));
     }
   }
   console.log(compChoices);
@@ -97,8 +101,10 @@ compChoose();
 resetBtn.addEventListener("click", function () {
   counterForFals = 0;
   counterForRight = 0;
+  span0.textContent = "";
   span1.textContent = "";
   span2.textContent = "";
+  span3.textContent = "";
 
   for (let column of columnsAll) {
     column.classList.remove("succes");

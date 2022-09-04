@@ -104,19 +104,26 @@
           </tr>
         </table>
 
-        <div class="game__texts">
-          <div>
-            <p class="game__text">
-              Количество правильных ответов:
-              <span class="game__text" id="_span1"></span>
-            </p>
-
-            <p class="game__text">
-              Количество неправильных ответов:
-              <span class="game__text" id="_span2"></span>
-            </p>
+        <div class="result">
+          <div class="result__box">
+            <div class="result__texts">
+              <p class="result__text">
+                Количество ходов:
+                <span id="_span0">0</span>
+              </p>
+              <p class="result__text">
+                Правильных ответов:
+                <span id="_span1">0</span>
+              </p>
+              <p class="result__text">
+                Неправильных ответов: <span id="_span2">0</span>
+              </p>
+              <p class="result__text">
+                Результаты игры: <span id="_span3"></span>
+              </p>
+            </div>
+            <button class="result__button" id="resetBtn">Начать заново</button>
           </div>
-          <button class="game__button" id="resetBtn">Начать заново</button>
         </div>
       </div>
     </section>

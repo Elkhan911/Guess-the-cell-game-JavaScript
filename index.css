@@ -1,7 +1,7 @@
 .game {
   border: 1px solid black;
   width: 1200px;
-  margin: 30px auto 0;
+  margin: 10px auto 0;
 }
 
 .game__box {
@@ -13,12 +13,11 @@
 }
 
 .game__header {
-  border: 1px solid black;
   font-size: 40px;
+  margin: 10px 0;
 }
 
 .rules__box {
-  border: 1px solid black;
 }
 
 .rules__header {
@@ -84,17 +83,14 @@
 
 .table__item:hover {
   background-color: floralwhite;
+  cursor: pointer;
 }
 
-.clickOn {
+.table__item_succes {
   background-color: rgb(20, 210, 20);
 }
 
-.succes {
-  background-color: rgb(20, 210, 20);
-}
-
-.fail {
+.table__item_fail {
   background-color: red;
 }
 
@@ -103,6 +99,8 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  width: 600px;
+  justify-content: space-between;
 }
 
 .game__text {
@@ -112,7 +110,7 @@
   width: 615px;
 }
 
-.game__button {
+.result__button {
   width: 200px;
   height: 100px;
   border-radius: 20px;
@@ -120,6 +118,20 @@
   cursor: pointer;
 }
 
-.game__button:hover {
+.result__button:hover {
   background-color: floralwhite;
+}
+
+.result__texts {
+  margin: 0 auto;
+  text-align: center;
+  width: 615px;
+}
+
+.result__text {
+  border: 1px solid black;
+  margin: 0;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: 500;
 }
