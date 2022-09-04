@@ -5,6 +5,25 @@ const span3 = document.querySelector("#_span3");
 const resetBtn = document.querySelector("#resetBtn");
 const timerText = document.querySelector("#_timerText");
 const timer = document.querySelector("#_timer");
+const rulesBtn = document.querySelector("#_rulesBtn");
+const rulesBox = document.querySelector(".rules__contents");
+const hideRulesBtn = document.querySelector("#_hideRulesBtn");
+
+let rules = false;
+
+rulesBtn.addEventListener("click", function () {
+  if (rules == false) {
+    rulesBox.classList.remove("rules__contents_off");
+    rules = true;
+  }
+});
+
+hideRulesBtn.addEventListener("click", function () {
+  if (rules == true) {
+    rulesBox.classList.add("rules__contents_off");
+    rules = false;
+  }
+});
 
 // Массив выборово юзера
 let userChoices = [];

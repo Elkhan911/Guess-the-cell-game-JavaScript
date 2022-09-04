@@ -27,6 +27,14 @@
   padding-bottom: 15px;
 }
 
+.rules__contents {
+  display: block;
+}
+
+.rules__contents_off {
+  display: none;
+}
+
 .rules__content {
   font-size: 20px;
   margin: 0;
@@ -79,11 +87,11 @@
 }
 
 .clickOn {
-  background-color: green;
+  background-color: rgb(20, 210, 20);
 }
 
 .succes {
-  background-color: green;
+  background-color: rgb(20, 210, 20);
 }
 
 .fail {
