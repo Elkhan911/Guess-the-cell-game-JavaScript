@@ -82,7 +82,7 @@ function compChoose() {
 
 compChoose();
 
-let timerCounter = 5;
+let timerCounter = 100;
 let timerId;
 
 timer.addEventListener("click", startTimer);
