@@ -35,8 +35,7 @@ hideRulesBtn.addEventListener("click", function () {
 let userChoices = [];
 
 // Массив выборов комьютера
-const compChoices = [];
-console.log(compChoices);
+let compChoices = [];
 
 // Счетчик для id ячеек
 let counterIdColumn = 0;
@@ -51,12 +50,16 @@ let counterForRight = 0;
 let counterForFals = 0;
 
 // присваиваем каждой ячейке id
-for (let column of columnsAll) {
-  counterIdColumn++;
-  column.id = counterIdColumn;
-  column.textContent = column.id;
-  column.addEventListener("click", userChoose);
+function func() {
+  for (let column of columnsAll) {
+    counterIdColumn++;
+    column.id = counterIdColumn;
+    column.textContent = column.id;
+    column.addEventListener("click", userChoose);
+  }
 }
+
+func();
 
 // функция Random
 function getRandom(min, max) {
@@ -65,6 +68,7 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+// функция для выбора ячеек компютером
 function compChoose() {
   while (compChoices.length < 26) {
     let x = getRandom(1, 50);
@@ -78,31 +82,8 @@ function compChoose() {
 
 compChoose();
 
-// кнопка сброса - начать заново
-resetBtn.addEventListener("click", function () {
-  counterForFals = 0;
-  counterForRight = 0;
-  span0.textContent = "";
-  span1.textContent = "";
-  span2.textContent = "";
-  span3.textContent = "";
-
-  for (let column of columnsAll) {
-    column.classList.remove("succes");
-    column.classList.remove("fail");
-    userChoices = [];
-  }
-
-  clearInterval(timerId);
-  timerCounter = 100;
-  timerText.textContent = timerCounter + " секунд";
-
-  timer.addEventListener("click", startTimer);
-});
-
-let timerCounter = 100;
+let timerCounter = 5;
 let timerId;
-timerText.textContent = timerCounter + " секунд";
 
 timer.addEventListener("click", startTimer);
 
@@ -110,7 +91,7 @@ timer.addEventListener("click", startTimer);
 function startTimer() {
   timerId = setInterval(function () {
     timerCounter--;
-    timerText.textContent = timerCounter + " секунд(ы)";
+    timerText.textContent = timerCounter;
     if (timerCounter == 0) {
       clearInterval(timerId);
       timerCounter = 100;
@@ -139,12 +120,50 @@ function userChoose() {
   this.removeEventListener("click", userChoose);
 }
 
+// функция для определения — победа или поражения
 function checkResult() {
-  if (Number(span1.textContent) >= 10) {
+  console.log(timerText.textContent);
+  if (Number(span1.textContent) >= 10 && timerText.textContent > 0) {
     span3.textContent = "поздравляем! Вы одержали победу";
     counterUserMoves = 20;
+    clearInterval(timerId);
   }
-  if (counterUserMoves == 20 && Number(span1.textContent < 10)) {
+  if (
+    (counterUserMoves == 20 && Number(span1.textContent < 10)) ||
+    timerText.textContent == 0
+  ) {
     span3.textContent = "поражение. Сыграйте еще раз";
+    counterUserMoves = 20;
   }
 }
+
+// кнопка сброса - начать заново
+resetBtn.addEventListener("click", function () {
+  counterForFals = 0;
+  counterForRight = 0;
+  counterUserMoves = 0;
+  span0.textContent = "";
+  span1.textContent = "";
+  span2.textContent = "";
+  span3.textContent = "";
+
+  for (let column of columnsAll) {
+    if (column.classList.contains("table__item_succes")) {
+      column.classList.remove("table__item_succes");
+    }
+    if (column.classList.contains("table__item_fail")) {
+      column.classList.remove("table__item_fail");
+    }
+  }
+
+  userChoices = [];
+  compChoices = [];
+  compChoose();
+  counterIdColumn = 0;
+  func();
+
+  clearInterval(timerId);
+  timerCounter = 100;
+  timerText.textContent = timerCounter + " секунд";
+  timer.addEventListener("click", startTimer);
+});
